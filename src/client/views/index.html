@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://use.fontawesome.com/b3cae6aecc.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+ 
+  <title>Travel App</title>
+</head>
+
+<body>
+  <div id = "app">
+    <div id = "user">
+      <div class ="holder headline">
+        <h1>Travel Planner</h1>
+      </div>
+      <div class ="holder city">
+        <label for="city">Where do you want to travel?</label>
+        <input type="text" id="city" placeholder="Eg. Tokyo, Seoul, Canada" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter destination city'"  >
+      </div>
+      <div class ="holder feel">
+        <label for="arrival">When do you expect to travel?</label>
+        <input type="date" class= "myInput" id="arrivalDate" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your travel date' "><br>
+        <button id="generate" class="btn" type = "submit"> Save Trip </button><br>
+      </div>
+    </div>
+
+    <div id="responseHolder" class ="holder entry">
+      <div id="nextTrip" class="title">Your Trips</div>
+      <div id="tripList" class="trip-list">
+      <div id="entryHolder" class="flex-container">
+        <!-- Country image on the left -->
+        <div id="imageHolder">
+          <div id="picture"></div> 
+        </div>
+    
+        <!-- Trip information on the right -->
+        <div id="tripInfo">
+          <div id="country"></div>
+          <div id ="content"></div>
+          <div id="countdown"></div>
+          <div id="temp"></div>
+          <div id="date"></div> 
+
+        <div id="country-info">
+            <div id="capital"></div>
+            <div id="population"></div>
+            <div id="currency"></div>
+            <div id="region"></div>
+        </div>
+
+        <button id="removeTripBtn" class="remove-btn" onclick="deleteTrip()" style="display: none;">Remove Trip</button>
+        </div>
+      </div>
+    </div>    
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
+
+</body>
+</html>

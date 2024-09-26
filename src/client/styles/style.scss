@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  body {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('../media/travel.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #313446;
+    font-size: 1.2rem;
+    font-family: 'Oswald', sans-serif;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-behavior: smooth;
+  }
+  
+  #app {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #user {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 1rem auto;
+    animation: slideIn 1s ease-out;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin-bottom: 1rem;
+  }
+  
+  .label {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  
+  input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #313446;
+    font-size: 1.2rem;
+    transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  input:focus {
+    border-color: #8dbef5;
+    transform: scale(1.02);
+  }
+  
+  .btn {
+    background: linear-gradient(to right, #1a5791, #1991d6);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .btn:hover {
+    background: linear-gradient(to right, #82aee0, #31759c);
+    transform: scale(1.05);
+  }
+  
+  #responseHolder {
+    display: block;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards ease-in-out;
+  }
+  
+  #entryHolder {
+    padding: 2rem;
+  }
+  
+  /* Flex container to hold image and info side by side */
+  .flex-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling the image holder */
+  #imageHolder {
+    flex: 1;
+    max-width: 40%;
+    margin-right: 20px;
+  }
+  
+  #picture img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: slideUp 1.5s ease-in-out;
+  }
+  
+  /* Styling the trip info */
+  #tripInfo {
+    text-align: left;
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+  
+  #tripInfo div {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #313446;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #313446;
+  }
+  
+  .remove-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 15px;
+    align-self: flex-end;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .remove-btn:hover {
+    background-color: #c0392b;
+  }
+
+  .trip-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .trip-entry {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 350px;  
+    margin: 10px;
+    animation: fadeIn 1.5s forwards ease-in-out;
+  }
+  
+  .trip-entry .trip-info, .trip-entry .trip-image {
+    margin-bottom: 15px;
+  }
+  
+  .trip-entry .trip-info h3 {
+    font-size: 1.6rem;
+    color: #313446;
+  }
+  
+  .trip-entry .trip-info p {
+    font-size: 1rem;
+    color: #313446;
+  }
+  
+  .trip-entry .trip-image img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  /* Responsive design */
+  @media screen and (max-width: 768px) {
+    .flex-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    #imageHolder {
+      margin-right: 0;
+      margin-bottom: 20px;
+      max-width: 100%;
+    }
+  
+    #tripInfo {
+      max-width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+  
+    input {
+      font-size: 1rem;
+      padding: 12px;
+    }
+  
+    .btn {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+  
+  /* Animations */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
